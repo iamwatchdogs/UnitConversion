@@ -7,34 +7,93 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="author" content="Shamith" />
-        <meta name="description" content="Simple web page which performs Unit Conversion" />
+        <meta name="author" content="Shamith">
+        <meta name="description" content="Simple web page which performs Unit Conversion">
 
         <!-- Open Graph Protocol -->
         <meta property="og:title" content="Unit Converter">
         <meta property="og:type" content="website">
-        <!-- <meta property="og:url" content="">
-        <meta property="og:image" content=""> -->
+        <!-- <meta property="og:url" content=""> -->
+        <!-- <meta property="og:image" content=""> -->
 
         <!-- <link rel="icon" href="" type="image/icon-x"> -->
-        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="style.css" type="text/css">
 
         <title>Unit Converter</title>
 
     </head>
 
     <body>
-        <header>
+            <header>
+                <h1>Unit Converter</h1>
+            </header>
+            
+            <main>
+                <div class="container">
 
-        </header>
+                    <!-- Length Unit Converter -->
+                    <div class="diplay-box" id="length">
+                        <h2 class="len-header">Length</h2>
+                        <div class="from">
+                            <label for="from-length-units">From:</label>
+                            <select id="from-length-units" name="from-length-units">
+                                <option value="" selected disabled hidden>Select length unit</option>
+                                <option value="meter">Meter</option>
+                                <option value="kilometer">Kilometer</option>
+                                <option value="centimeter">Centimeter</option>
+                                <option value="millimeter">Millimeter</option>
+                                <option value="micrometer">Micrometer</option>
+                                <option value="nanometer">Nanometer</option>
+                                <option value="mile">Mile</option>
+                                <option value="yard">Yard</option>
+                                <option value="foot">Foot</option>
+                                <option value="inch">Inch</option>
+                                <option value="lightyear">Light Year</option>
+                            </select>
+                            <input type="text" name="from-value" id="from-length-value">
+                        </div>
+                        <div class="to">
+                            <label for="to-length-units">To:</label>
+                            <select id="to-length-units" name="to-length-units">
+                                <option value="" selected disabled hidden>Select length unit</option>
+                                <option value="meter">Meter</option>
+                                <option value="kilometer">Kilometer</option>
+                                <option value="centimeter">Centimeter</option>
+                                <option value="millimeter">Millimeter</option>
+                                <option value="micrometer">Micrometer</option>
+                                <option value="nanometer">Nanometer</option>
+                                <option value="mile">Mile</option>
+                                <option value="yard">Yard</option>
+                                <option value="foot">Foot</option>
+                                <option value="inch">Inch</option>
+                                <option value="lightyear">Light Year</option>
+                            </select>
+                            <input type="text" name="to-value" id="to-length-value" disabled>
+                        </div>
+                    </div>
 
-        <main>
+                    <!-- Temperature Unit Converter -->
+                    <div class="diplay-box" id="temp"></div>
 
-        </main>
+                    <!-- Area Unit Converter -->
+                    <div class="diplay-box" id="area"></div>
 
-        <footer>
+                    <!-- Volume Unit Converter -->
+                    <div class="diplay-box" id="volume"></div>
 
-        </footer>
-    </body>
+                    <!-- Weight/Mass Unit Converter -->
+                    <div class="diplay-box" id="weight"></div>
+
+                    <!-- Time Unit Converter -->
+                    <div class="diplay-box" id="time"></div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>Made by <a href="https://github.com/iamwatchdogs" title="Goto @iamwatchdogs" target="_blank">Shamith</a>.</p>
+            </footer>
+
+            <script src="script.js"></script>
+        </body>
 
 </html>
