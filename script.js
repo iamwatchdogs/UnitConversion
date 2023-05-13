@@ -17,3 +17,4 @@ to.addEventListener('change', () => {
 });
 
 inputValue.addEventListener('input', () => { outputValue.value = inputValue.value});
+
