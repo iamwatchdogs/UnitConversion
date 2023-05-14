@@ -1,3 +1,6 @@
+// ----------------------------------------
+//   Declaring Unit Converting Constants 
+// ----------------------------------------
 const LENGHT_CONSTANT_VALUES = {
     meter: {
       meter: 1,
@@ -143,9 +146,37 @@ const LENGHT_CONSTANT_VALUES = {
       'light-year': 1
     }
 };
-  
+
+const TEMP_CONSTANT_VALUES = {
+    celsius: {
+        celsius: 1,
+        fahrenheit: 33.8,
+        kelvin: 274.15
+    },
+    fahrenheit: {
+        celsius: -17.2222,
+        fahrenheit: 1,
+        kelvin: 255.928
+    },
+    kelvin: {
+        celsius: -272.15,
+        fahrenheit: -457.87,
+        kelvin: 1
+    }
+};
+
+// ----------------------------------------
+//         Unit Converting Logic 
+// ----------------------------------------
 function convertLength(value, inputOption, outputOption) {
     const fromBaseValue = LENGHT_CONSTANT_VALUES[inputOption][outputOption];
     const toBaseValue = LENGHT_CONSTANT_VALUES[outputOption][inputOption];
     return value * fromBaseValue / toBaseValue;
 }
+
+function convertTemp(value, inputOption, outputOption) {
+    const fromBaseValue = TEMP_CONSTANT_VALUES[inputOption][outputOption];
+    const toBaseValue = TEMP_CONSTANT_VALUES[outputOption][inputOption];
+    return value * fromBaseValue / toBaseValue;
+}
+
