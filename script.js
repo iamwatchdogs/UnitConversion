@@ -31,17 +31,17 @@ const unitConversion = () => {
 
     // For executing respective Unit Conversion
     if (selectedUnitType == 'length') {
-        outputValue.value = convertLength(value);
+        outputValue.value = convertLength(value, fromOption, toOption);
     } else if (selectedUnitType == 'temp') {
-        outputValue.value = convertTemp(value);
+        outputValue.value = convertTemp(value, fromOption, toOption );
     } else if (selectedUnitType == 'area') {
-        outputValue.value = convertArea(value);
+        outputValue.value = convertArea(value, fromOption, toOption );
     } else if (selectedUnitType == 'volume') {
-        outputValue.value = convertVolume(value);
+        outputValue.value = convertVolume(value, fromOption, toOption );
     } else if (selectedUnitType == 'weight') {
-        outputValue.value = convertWeight(value);
+        outputValue.value = convertWeight(value, fromOption, toOption );
     } else if (selectedUnitType == 'time') {
-        outputValue.value = convertTime(value);
+        outputValue.value = convertTime(value, fromOption, toOption );
     } else {
         outputValue.value = -1;
     }
