@@ -165,6 +165,152 @@ const TEMP_CONSTANT_VALUES = {
     }
 };
 
+const AREA_CONSTANT_VALUES = {
+    'square-meter': {
+        'square-meter': 1,
+        'square-kilometer': 1e-6,
+        'square-centimeter': 1e4,
+        'square-millimeter': 1e6,
+        'square-micrometer': 1e12,
+        'hectare': 0.0001,
+        'square-mile': 3.861e-7,
+        'square-yard': 1.196,
+        'square-foot': 10.764,
+        'square-inch': 1550,
+        'acre': 0.0002471054
+    },
+    'square-kilometer': {
+        'square-meter': 1e6,
+        'square-kilometer': 1,
+        'square-centimeter': 1e10,
+        'square-millimeter': 1e12,
+        'square-micrometer': 1e18,
+        'hectare': 100,
+        'square-mile': 0.386102,
+        'square-yard': 1.196e6,
+        'square-foot': 1.076e7,
+        'square-inch': 1.55e9,
+        'acre': 247.105
+    },
+    'square-centimeter': {
+        'square-meter': 1e-4,
+        'square-kilometer': 1e-10,
+        'square-centimeter': 1,
+        'square-millimeter': 100,
+        'square-micrometer': 1e8,
+        'hectare': 1e-8,
+        'square-mile': 3.861e-11,
+        'square-yard': 0.000119599,
+        'square-foot': 0.00107639,
+        'square-inch': 0.155,
+        'acre': 2.4711e-8
+    },
+    'square-millimeter': {
+        'square-meter': 1e-6,
+        'square-kilometer': 1e-12,
+        'square-centimeter': 0.01,
+        'square-millimeter': 1,
+        'square-micrometer': 1e6,
+        'hectare': 1e-10,
+        'square-mile': 3.861e-13,
+        'square-yard': 1.196e-6,
+        'square-foot': 1.076e-5,
+        'square-inch': 0.00155,
+        'acre': 2.4711e-10
+    },
+    'square-micrometer': {
+        'square-meter': 1e-12,
+        'square-kilometer': 1e-18,
+        'square-centimeter': 1e-8,
+        'square-millimeter': 1e-6,
+        'square-micrometer': 1,
+        'hectare': 1e-16,
+        'square-mile': 3.861e-19,
+        'square-yard': 1.196e-12,
+        'square-foot': 1.076e-11,
+        'square-inch': 1.55e-9,
+        'acre': 2.4711e-16
+    },
+    'hectare': {
+        'square-meter': 10000,
+        'square-kilometer': 0.01,
+        'square-centimeter': 1e8,
+        'square-millimeter': 1e10,
+        'square-micrometer': 1e16,
+        'hectare': 1,
+        'square-mile': 0.00386102,
+        'square-yard': 11959.9,
+        'square-foot': 107639,
+        'square-inch': 1.55e7,
+        'acre': 2.47105
+    },
+    'square-mile': {
+        'square-meter': 2.59e6,
+        'square-kilometer': 2.58999,
+        'square-centimeter': 2.59e10,
+        'square-millimeter': 2.59e12,
+        'square-micrometer': 2.59e18,
+        'hectare': 258.999,
+        'square-mile': 1,
+        'square-yard': 3.098e6,
+        'square-foot': 2.788e7,
+        'square-inch': 4.014e9,
+        'acre': 640
+    },
+    'square-yard': {
+        'square-meter': 0.836127,
+        'square-kilometer': 8.3613e-7,
+        'square-centimeter': 8361.27,
+        'square-millimeter': 836127,
+        'square-micrometer': 8.3613e11,
+        'hectare': 8.3613e-5,
+        'square-mile': 3.2283e-7,
+        'square-yard': 1,
+        'square-foot': 9,
+        'square-inch': 1296,
+        'acre': 0.000206612
+    },
+    'square-foot': {
+        'square-meter': 0.092903,
+        'square-kilometer': 9.2903e-8,
+        'square-centimeter': 929.03,
+        'square-millimeter': 92903,
+        'square-micrometer': 9.2903e10,
+        'hectare': 9.2903e-6,
+        'square-mile': 3.587e-8,
+        'square-yard': 0.111111,
+        'square-foot': 1,
+        'square-inch': 144,
+        'acre': 2.2957e-5
+    },
+    'square-inch': {
+        'square-meter': 0.00064516,
+        'square-kilometer': 6.4516e-10,
+        'square-centimeter': 6.4516,
+        'square-millimeter': 645.16,
+        'square-micrometer': 6.4516e8,
+        'hectare': 6.4516e-8,
+        'square-mile': 2.491e-10,
+        'square-yard': 0.000771605,
+        'square-foot': 0.00694444,
+        'square-inch': 1,
+        'acre': 1.5942e-7
+    },
+    'acre': {
+        'square-meter': 4046.86,
+        'square-kilometer': 0.00404686,
+        'square-centimeter': 4.0469e7,
+        'square-millimeter': 4.0469e9,
+        'square-micrometer': 4.0469e15,
+        'hectare': 0.404686,
+        'square-mile': 0.0015625,
+        'square-yard': 4840,
+        'square-foot': 43560,
+        'square-inch': 6.273e6,
+        'acre': 1
+    }
+};
+  
 // ----------------------------------------
 //         Unit Converting Logic 
 // ----------------------------------------
@@ -180,3 +326,8 @@ function convertTemp(value, inputOption, outputOption) {
     return value * fromBaseValue / toBaseValue;
 }
 
+function convertArea(value, inputOption, outputOption) {
+    const fromBaseValue = AREA_CONSTANT_VALUES[inputOption][outputOption];
+    const toBaseValue = AREA_CONSTANT_VALUES[outputOption][inputOption];
+    return value * fromBaseValue / toBaseValue;
+}
