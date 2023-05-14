@@ -965,6 +965,152 @@ const WEIGHT_CONSTANT_VALUES = {
     }
 };
 
+const TIME_CONSTANT_VALUES = {
+    seconds: {
+        seconds: 1,
+        milliseconds: 1000,
+        microseconds: 1000000,
+        nanoseconds: 10e+8,
+        picoseconds: 10e+11,
+        minute: 0.0166666667,
+        hour: 0.0002777778,
+        day: 1.1574074074e-5,
+        week: 1.6534391534e-6,
+        month: 3.805175038e-7,
+        year: 3.1709791984e-8
+    },
+    milliseconds: {
+        seconds: 0.001,
+        milliseconds: 1,
+        microseconds: 1000,
+        nanoseconds: 1000000,
+        picoseconds: 10e+8,
+        minute: 0.0000166667,
+        hour: 2.7777777778e-7,
+        day: 1.1574074074e-8,
+        week: 1.6534391534e-9,
+        month: 3.805175038e-10,
+        year: 3.1709791984e-11
+    },
+    microseconds: {
+        seconds: 0.000001,
+        milliseconds: 0.001,
+        microseconds: 1,
+        nanoseconds: 1000,
+        picoseconds: 1000000,
+        minute: 1.6666666667e-8,
+        hour: 2.7777777778e-10,
+        day: 1.1574074074e-11,
+        week: 1.6534391534e-12,
+        month: 3.805175038e-13,
+        year: 3.1709791984e-14
+    },
+    nanoseconds: {
+        seconds: 1e-9,
+        milliseconds: 1e-6,
+        microseconds: 0.001,
+        nanoseconds: 1,
+        picoseconds: 1000,
+        minute: 1.6666666667e-11,
+        hour: 2.7777777778e-13,
+        day: 1.1574074074e-14,
+        week: 1.6534391534e-15,
+        month: 3.805175038e-16,
+        year: 3.1709791984e-17
+    },
+    picoseconds: {
+        seconds: 1e-12,
+        milliseconds: 1e-9,
+        microseconds: 0.000001,
+        nanoseconds: 0.001,
+        picoseconds: 1,
+        minute: 1.6666666667e-14,
+        hour: 2.7777777778e-16,
+        day: 1.1574074074e-17,
+        week: 1.6534391534e-18,
+        month: 3.805175038e-19,
+        year: 3.1709791984e-20
+    },
+    minute: {
+        seconds: 60,
+        milliseconds: 60000,
+        microseconds: 60000000,
+        nanoseconds: 60e+9,
+        picoseconds: 60e+12,
+        minute: 1,
+        hour: 0.0166666667,
+        day: 0.0006944444,
+        week: 0.0000992063,
+        month: 0.0000228311,
+        year: 0.0000019026
+    },
+    hour: {
+        seconds: 3600,
+        milliseconds: 3600000,
+        microseconds: 3600000000,
+        nanoseconds: 360e+10,
+        picoseconds: 360e+13,
+        minute: 60,
+        hour: 1,
+        day: 0.0416666667,
+        week: 0.005952381,
+        month: 0.0013689254,
+        year: 0.0001140779
+    },
+    day: {
+        seconds: 86400,
+        milliseconds: 86400000,
+        microseconds: 8640e+7,
+        nanoseconds: 8640e+10,
+        picoseconds: 8640e+13,
+        minute: 1440,
+        hour: 24,
+        day: 1,
+        week: 0.1428571429,
+        month: 0.0328542094,
+        year: 0.0027378508
+    },
+    week: {
+        seconds: 604800,
+        milliseconds: 604800000,
+        microseconds: 604800000000,
+        nanoseconds: 60480e+10,
+        picoseconds: 60480e+13,
+        minute: 10080,
+        hour: 168,
+        day: 7,
+        week: 1,
+        month: 0.2301369863,
+        year: 0.0191780822
+    },
+    month: {
+        seconds: 2628000,
+        milliseconds: 2628000000,
+        microseconds: 26280e+8,
+        nanoseconds: 26280e+11,
+        picoseconds: 26280e+14,
+        minute: 43800,
+        hour: 730.001,
+        day: 30.4166666667,
+        week: 4.3452380952,
+        month: 1,
+        year: 0.0833333333
+    },
+    year: {
+        seconds: 31536000,
+        milliseconds: 31536000000,
+        microseconds: 315360e+8,
+        nanoseconds: 315360e+11,
+        picoseconds: 315360e+14,
+        minute: 525600,
+        hour: 8760,
+        day: 365,
+        week: 52.1428571429,
+        month: 12,
+        year: 1
+    }
+};
+
 
 // ----------------------------------------
 //         Unit Converting Logic 
@@ -996,5 +1142,11 @@ function convertVolume(value, inputOption, outputOption) {
 function convertWeight(value, inputOption, outputOption) {
     const fromBaseValue = WEIGHT_CONSTANT_VALUES[inputOption][outputOption];
     const toBaseValue = WEIGHT_CONSTANT_VALUES[outputOption][inputOption];
+    return value * fromBaseValue / toBaseValue;
+}
+
+function convertTime(value, inputOption, outputOption) {
+    const fromBaseValue = TIME_CONSTANT_VALUES[inputOption][outputOption];
+    const toBaseValue = TIME_CONSTANT_VALUES[outputOption][inputOption];
     return value * fromBaseValue / toBaseValue;
 }
