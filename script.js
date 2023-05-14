@@ -14,6 +14,8 @@ selector.forEach(selector => {
         const displayBoxId = selector.getAttribute('data-target');
         document.getElementById(displayBoxId).style.display = 'grid';
         selectedUnitType = displayBoxId;
+        inputValue.value = "";
+        outputValue.value = "";
     } );
 });
 
