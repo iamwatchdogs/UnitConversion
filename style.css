@@ -59,11 +59,13 @@ nav {
 label {
     padding: 10px 0;
 }
-
 .input-output-textbar {
     width: 100%;
     height: 5vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+.selector {
+    cursor: pointer;
 }

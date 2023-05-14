@@ -18,3 +18,19 @@ to.addEventListener('change', () => {
 
 inputValue.addEventListener('input', () => { outputValue.value = inputValue.value});
 
+// ----------------------------------------
+//           Unit Toggler Logic 
+// ----------------------------------------
+
+const selector = document.querySelectorAll('.selector');
+const displayBoxes = document.querySelectorAll('.display-box');
+
+selector.forEach(selector => {
+    selector.addEventListener('click', () => {
+        displayBoxes.forEach(target => {
+            target.style.display = 'none';
+        });
+        const displayBoxId = selector.getAttribute('data-target');
+        document.getElementById(displayBoxId).style.display = 'grid';
+    } );
+});
