@@ -18,30 +18,16 @@ selector.forEach(selector => {
 });
 
 // ----------------------------------------
-//     Unit Conversion I/O DOM Logic 
+//     Actual Unit Conversion Logic 
 // ----------------------------------------
 
-const inputValue = document.getElementById('from-value');
-const outputValue = document.getElementById('to-value');
-let fromOption, toOption;
-
-displayBoxes.forEach( displayBox => {
-    const from = displayBox.querySelector('.from select');
-    const to = displayBox.querySelector('.to select');
-
-    from.addEventListener('change', () => {
-        fromOption = from.options[from.selectedIndex].value;
-    });
-
-    to.addEventListener('change', () => {
-        toOption = to.options[to.selectedIndex].value;
-    });
-} );
-
-inputValue.addEventListener('input', (selectedUnitType) => {
-
+const unitConversion = () => {
     // Type Casting input sting value to Float
     const value = parseFloat(inputValue.value);
+
+    if (fromOption == null || toOption == null || isNaN(value) || value == "") {
+        return;
+    }
 
     // For executing respective Unit Conversion
     if (selectedUnitType == 'length') {
@@ -57,6 +43,35 @@ inputValue.addEventListener('input', (selectedUnitType) => {
     } else if (selectedUnitType == 'time') {
         outputValue.value = convertTime(value);
     } else {
-        outputValue.value = 'Invalid `inputValue.value`';
+        outputValue.value = -1;
     }
+}
+
+
+// ----------------------------------------
+//     Unit Conversion I/O DOM Logic 
+// ----------------------------------------
+
+const inputValue = document.getElementById('from-value');
+const outputValue = document.getElementById('to-value');
+let fromOption = null, toOption = null;
+
+
+displayBoxes.forEach( displayBox => {
+    const from = displayBox.querySelector('.from select');
+    const to = displayBox.querySelector('.to select');
+
+    from.addEventListener('change', () => {
+        fromOption = from.options[from.selectedIndex].value;
+        unitConversion();
+    });
+
+    to.addEventListener('change', () => {
+        toOption = to.options[to.selectedIndex].value;
+        unitConversion();
+    });
+} );
+
+inputValue.addEventListener('input', () => {
+    unitConversion();
 } );
