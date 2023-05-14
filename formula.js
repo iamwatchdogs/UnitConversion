@@ -842,6 +842,130 @@ const VOL_CONSTANT_VALUES = {
     }
 };
 
+const WEIGHT_CONSTANT_VALUES = {
+    kilogram: {
+        kilogram: 1,
+        gram: 1000,
+        milligram: 1e+6,
+        'metric-ton': 0.001,
+        'long-ton': 0.0009842073,
+        'short-ton': 0.0011023122,
+        pound: 2.20462e-6,
+        ounce: 3.5274e-5,
+        carrat: 5000,
+        'atomic-mass-unit': 6.0221366516752e+26
+    },
+    gram: {
+        kilogram: 0.001,
+        gram: 1,
+        milligram: 1000,
+        'metric-ton': 1e-6,
+        'long-ton': 9.842073e-7,
+        'short-ton': 1.102312e-6,
+        pound: 2.20462e-9,
+        ounce: 3.5274e-8,
+        carrat: 0.2,
+        'atomic-mass-unit': 6.0221366516752e+23
+    },
+    milligram: {
+        kilogram: 1e-6,
+        gram: 0.001,
+        milligram: 1,
+        'metric-ton': 1e-9,
+        'long-ton': 9.842073e-10,
+        'short-ton': 1.102312e-9,
+        pound: 2.20462e-12,
+        ounce: 3.5274e-11,
+        carrat: 0.0002,
+        'atomic-mass-unit': 6.0221366516752e+20
+    },
+    'metric-ton': {
+        kilogram: 1000,
+        gram: 1e+6,
+        milligram: 1e+9,
+        'metric-ton': 1,
+        'long-ton': 0.984207,
+        'short-ton': 1.102312,
+        pound: 2204.62,
+        ounce: 35273.96,
+        carrat: 5e+6,
+        'atomic-mass-unit': 6.0221366516752e+29
+    },
+    'long-ton': {
+        kilogram: 1016.0469088,
+        gram: 1.0160469088e+6,
+        milligram: 1.0160469088e+9,
+        'metric-ton': 1.0160469088,
+        'long-ton': 1,
+        'short-ton': 1.12,
+        pound: 2240,
+        ounce: 35840,
+        carrat: 5080234.544,
+        'atomic-mass-unit': 6.1165511556752e+29
+    },
+    'short-ton': {
+        kilogram: 907.18474,
+        gram: 907184.74,
+        milligram: 9.0718474e+8,
+        'metric-ton': 0.90718474,
+        'long-ton': 0.8928571429,
+        'short-ton': 1,
+        pound: 2000,
+        ounce: 32000,
+        carrat: 4535923.68,
+        'atomic-mass-unit': 5.7737565756752e+29
+    },
+    pound: {
+        kilogram: 453592.37,
+        gram: 453592.37,
+        milligram: 4.5359237e+8,
+        'metric-ton': 0.45359237,
+        'long-ton': 0.0004464286,
+        'short-ton': 0.0005,
+        pound: 1,
+        ounce: 16,
+        carrat: 2267962.96,
+        'atomic-mass-unit': 2.8938782878376e+29
+    },
+    ounce: {
+        kilogram: 28349.523125,
+        gram: 28349.523125,
+        milligram: 28349.523125,
+        'metric-ton': 0.0283495231,
+        'long-ton': 0.0000279018,
+        'short-ton': 0.00003125,
+        pound: 0.0625,
+        ounce: 1,
+        carrat: 141.747615,
+        'atomic-mass-unit': 1.8174245548988e+28
+    },
+    carrat: {
+        kilogram: 0.0002,
+        gram: 0.2,
+        milligram: 200,
+        'metric-ton': 2e-7,
+        'long-ton': 1.968414e-7,
+        'short-ton': 2.204624e-7,
+        pound: 4.409248e-7,
+        ounce: 0.0070547924,
+        carrat: 1,
+        'atomic-mass-unit': 1.204427330335e+23
+    },
+    'atomic-mass-unit': {
+        kilogram: 1.6605401999999998e-27,
+        gram: 1.6605401999999998e-24,
+        milligram: 1.6605401999999998e-21,
+        'metric-ton': 1.6605401999999998e-30,
+        'long-ton': 1.6330034499999998e-30,
+        'short-ton': 1.8307141999999998e-30,
+        pound: 3.6607143999999996e-30,
+        ounce: 5.857143039999999e-29,
+        carrat: 8.301080399999999e-24,
+        'atomic-mass-unit': 1
+    }
+};
+
+
 // ----------------------------------------
 //         Unit Converting Logic 
 // ----------------------------------------
@@ -866,5 +990,11 @@ function convertArea(value, inputOption, outputOption) {
 function convertVolume(value, inputOption, outputOption) {
     const fromBaseValue = VOL_CONSTANT_VALUES[inputOption][outputOption];
     const toBaseValue = VOL_CONSTANT_VALUES[outputOption][inputOption];
+    return value * fromBaseValue / toBaseValue;
+}
+
+function convertWeight(value, inputOption, outputOption) {
+    const fromBaseValue = WEIGHT_CONSTANT_VALUES[inputOption][outputOption];
+    const toBaseValue = WEIGHT_CONSTANT_VALUES[outputOption][inputOption];
     return value * fromBaseValue / toBaseValue;
 }
