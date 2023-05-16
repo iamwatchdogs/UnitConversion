@@ -26,8 +26,9 @@ selector.forEach(selector => {
 const unitConversion = () => {
     // Type Casting input sting value to Float
     const value = parseFloat(inputValue.value);
-
+    
     if (fromOption == null || toOption == null || isNaN(value) || value == "") {
+        outputValue.value = "";
         return;
     }
 
