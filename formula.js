@@ -150,8 +150,8 @@ const LENGHT_CONSTANT_VALUES = {
 const TEMP_CONSTANT_VALUES = {
     celsius: {
         celsius: 1,
-        fahrenheit: 33.8,
-        kelvin: 274.15
+        fahrenheit: 1.8,
+        kelvin: 1
     },
     fahrenheit: {
         celsius: -17.2222,
@@ -1116,37 +1116,43 @@ const TIME_CONSTANT_VALUES = {
 //         Unit Converting Logic 
 // ----------------------------------------
 function convertLength(value, inputOption, outputOption) {
+    window.alert(LENGHT_CONSTANT_VALUES[inputOption][outputOption]);
     const fromBaseValue = LENGHT_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = LENGHT_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    return value * fromBaseValue  ;
 }
 
 function convertTemp(value, inputOption, outputOption) {
-    const fromBaseValue = TEMP_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = TEMP_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    const lowestValues={
+        celsius: 0,
+        fahrenheit: 32,
+        kelvin :273.15
+    }
+    const highestValues={
+        celsius:100,
+        fahrenheit: 212,
+        kelvin : 373.15
+    }
+    window.alert((value-lowestValues[outputOption])/(highestValues[outputOption]-lowestValues[outputOption]));
+    window.alert((highestValues[inputOption]-lowestValues[inputOption])+lowestValues[inputOption]);
+    return ((((value-lowestValues[inputOption])/(highestValues[inputOption]-lowestValues[inputOption]))*(highestValues[outputOption]-lowestValues[outputOption])))+lowestValues[outputOption];
 }
 
 function convertArea(value, inputOption, outputOption) {
     const fromBaseValue = AREA_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = AREA_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    return value * fromBaseValue ;
 }
 
 function convertVolume(value, inputOption, outputOption) {
     const fromBaseValue = VOL_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = VOL_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    return value * fromBaseValue ;
 }
 
 function convertWeight(value, inputOption, outputOption) {
     const fromBaseValue = WEIGHT_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = WEIGHT_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    return value * fromBaseValue ;
 }
 
 function convertTime(value, inputOption, outputOption) {
     const fromBaseValue = TIME_CONSTANT_VALUES[inputOption][outputOption];
-    const toBaseValue = TIME_CONSTANT_VALUES[outputOption][inputOption];
-    return value * fromBaseValue / toBaseValue;
+    return value * fromBaseValue ;
 }
