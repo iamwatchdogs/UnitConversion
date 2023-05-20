@@ -26,30 +26,22 @@ selector.forEach(selector => {
 const unitConversion = () => {
     // Type Casting input sting value to Float
     const value = parseFloat(inputValue.value);
-    
-    if (fromOption == null || toOption == null || isNaN(value) || value == "") {
+
+    if(value===0 && selectedUnitType!='temp'){
+        outputValue.value=0;
+        return;
+    }
+    // For executing respective Unit Conversion
+    else if(fromOption != null || toOption != null || !isNaN(value) || value != ""){
+        outputValue.value = converter(selectedUnitType,value, fromOption, toOption);
+    }
+    else {
         outputValue.value = "";
         return;
     }
+    
 
-    // For executing respective Unit Conversion
-    if (selectedUnitType == 'length') {
-        outputValue.value = convertLength(value, fromOption, toOption);
-    } else if (selectedUnitType == 'temp') {
-        outputValue.value = convertTemp(value, fromOption, toOption );
-    } else if (selectedUnitType == 'area') {
-        outputValue.value = convertArea(value, fromOption, toOption );
-    } else if (selectedUnitType == 'volume') {
-        outputValue.value = convertVolume(value, fromOption, toOption );
-    } else if (selectedUnitType == 'weight') {
-        outputValue.value = convertWeight(value, fromOption, toOption );
-    } else if (selectedUnitType == 'time') {
-        outputValue.value = convertTime(value, fromOption, toOption );
-    } else {
-        outputValue.value = -1;
-    }
 }
-
 
 // ----------------------------------------
 //     Unit Conversion I/O DOM Logic 
