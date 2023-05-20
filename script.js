@@ -31,25 +31,12 @@ const unitConversion = () => {
         outputValue.value = "";
         return;
     }
-
     // For executing respective Unit Conversion
-    if (selectedUnitType == 'length') {
-        outputValue.value = convertLength(value, fromOption, toOption);
-    } else if (selectedUnitType == 'temp') {
-        outputValue.value = convertTemp(value, fromOption, toOption );
-    } else if (selectedUnitType == 'area') {
-        outputValue.value = convertArea(value, fromOption, toOption );
-    } else if (selectedUnitType == 'volume') {
-        outputValue.value = convertVolume(value, fromOption, toOption );
-    } else if (selectedUnitType == 'weight') {
-        outputValue.value = convertWeight(value, fromOption, toOption );
-    } else if (selectedUnitType == 'time') {
-        outputValue.value = convertTime(value, fromOption, toOption );
-    } else {
-        outputValue.value = -1;
+    else{
+        outputValue.value = converter(selectedUnitType,value, fromOption, toOption);
     }
-}
 
+}
 
 // ----------------------------------------
 //     Unit Conversion I/O DOM Logic 
