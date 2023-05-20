@@ -26,15 +26,20 @@ selector.forEach(selector => {
 const unitConversion = () => {
     // Type Casting input sting value to Float
     const value = parseFloat(inputValue.value);
-    
-    if (fromOption == null || toOption == null || isNaN(value) || value == "") {
-        outputValue.value = "";
+
+    if(value===0 && selectedUnitType!='temp'){
+        outputValue.value=0;
         return;
     }
     // For executing respective Unit Conversion
-    else{
+    else if(fromOption != null || toOption != null || !isNaN(value) || value != ""){
         outputValue.value = converter(selectedUnitType,value, fromOption, toOption);
     }
+    else {
+        outputValue.value = "";
+        return;
+    }
+    
 
 }
 

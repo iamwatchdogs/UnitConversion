@@ -1097,7 +1097,7 @@ const convertionTerms = {
 // ----------------------------------------
 //         Unit Converting Logic 
 // ----------------------------------------
-function converter(unitType,value, inputOption, outputOption) {
+function converter(unitType, value, inputOption, outputOption) {
     if(unitType == 'temp'){
         const lowestValues={
             celsius: 0,
