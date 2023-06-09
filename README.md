@@ -21,7 +21,7 @@
 <br>
 
 
-I recently completed a challenging and exciting front-end project as part of my web development internship at Codeclause. The project, called UnitConversion, is a simple website that can do unit conversion of lenght, temperature, volume, area, weight, and time. The project was built using a simple yet powerful combination of pure HTML, CSS, and javascript, also known as "villain javascript." Through this mini-project, I gained valuable hands-on experience with this cutting-edge technology and honed my web development skills.
+I recently completed a challenging and exciting front-end project as part of my web development internship at Codeclause. The project, called UnitConversion, is a simple website that can do unit conversion of lenght, temperature, volume, area, weight, and time. The project was built using a simple yet powerful combination of pure HTML, CSS, and javascript, also known as "vanilla javascript." Through this mini-project, I gained valuable hands-on experience with this cutting-edge technology and honed my web development skills.
 
 
 Working on the [UnitConversion](https://github.com/iamwatchdogs/UnitConversion "Goto Original Project") project was an incredible experience. It allowed me to showcase my creativity and problem-solving skills by developing a sleek and functional website that serves a practical purpose. I was challenged to implement responsive design principles to ensure the website looks great on all devices, and to leverage the power of javascript to create smooth and seamless user experiences.
